@@ -6,7 +6,8 @@ export const companyInfo = {
   email: "info@gentelelevators.com",
   location: "Saida, Lebanon",
   workingHours: "Monday to Saturday, 8:00 AM to 6:00 PM",
-  mapUrl: "",
+  mapUrl: "https://maps.app.goo.gl/AgJNArAbsKgkBbV8A",
+  mapEmbedUrl: "https://www.google.com/maps?q=33.5560905,35.3775681&z=16&output=embed",
 };
 
 export const navItems = [
