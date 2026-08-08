@@ -31,7 +31,7 @@ export default function Home() {
       </div>
     </section>
     <section className="section"><div className="container about-preview">
-      <ReferenceImage alt="Modern glass elevator system" position="20% 28%" />
+      <ReferenceImage src="/images/hero/gentle-elevator-hero.png" alt="Modern Gentle Elevators entrance with warm lighting" position="72% 50%" />
       <div><Eyebrow>About us</Eyebrow><h2>WE LIFT STANDARDS.<br />WE BUILD TRUST.</h2><p>Founded in {companyInfo.established}, Gentle Elevators provides safe, reliable elevator solutions from our base in Saida to customers throughout Lebanon.</p><div className="trust-grid">{trust.map(({ icon: Icon, title, text }) => <div className="trust" key={title}><Icon /><h3>{title}</h3><p>{text}</p></div>)}</div><Link className="text-link" href="/about">Discover our company <ArrowRight /></Link></div>
     </div></section>
     <section className="section services-preview"><div className="container"><div className="center-heading"><Eyebrow>Our services</Eyebrow><h2>COMPLETE ELEVATOR SOLUTIONS</h2><p>We provide complete elevator services based on your building’s needs.</p></div><div className="service-grid">{services.slice(0, 4).map(({ icon: Icon, ...service }) => <article className="service-card" key={service.slug}><ReferenceImage alt={`${service.title} service`} position={service.imagePosition} /><div><Icon /><h3>{service.title}</h3><p>{service.description}</p><Link href={`/services#${service.slug}`}>Learn more <ArrowRight /></Link></div></article>)}</div></div></section>
