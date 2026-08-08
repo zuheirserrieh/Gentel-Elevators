@@ -1,3 +1,24 @@
-import type { Metadata } from "next"; import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"; import { ContactForm } from "@/components/ContactForm"; import { Eyebrow, PageHero } from "@/components/Shared"; import { companyInfo } from "@/data/company";
-export const metadata:Metadata={title:"Contact",description:"Contact Gentel Elevators for elevator installation, repair, maintenance, site inspection, or a quotation."};
-export default function Contact(){const items=[{icon:Phone,l:"Phone",v:companyInfo.phone,href:`tel:${companyInfo.phone}`},{icon:MessageCircle,l:"WhatsApp",v:companyInfo.whatsapp,href:`https://wa.me/${companyInfo.whatsappDigits}`},{icon:Mail,l:"Email",v:companyInfo.email,href:`mailto:${companyInfo.email}`},{icon:MapPin,l:"Office",v:companyInfo.location},{icon:Clock,l:"Working hours",v:companyInfo.workingHours}];return <><PageHero title="CONTACT GENTEL ELEVATORS" description="Contact our team for elevator installation, repair, maintenance, or a quotation."/><section className="section"><div className="container contact-layout"><aside><Eyebrow>Talk to our team</Eyebrow><h2>WE’RE HERE TO HELP</h2><p>Tell us about your building, the service you need, and your location. We’ll review your inquiry and follow up using the details you provide.</p><div className="contact-list">{items.map(({icon:Icon,l,v,href})=>{const inner=<><Icon/><span><small>{l}</small><b>{v}</b></span></>;return href?<a href={href} key={l}>{inner}</a>:<div key={l}>{inner}</div>})}</div><div className="map-placeholder"><MapPin/><h3>Map location</h3><p>The map will appear here once a verified map URL is added to the company configuration.</p></div></aside><div><Eyebrow>Request a quote</Eyebrow><h2>TELL US ABOUT YOUR PROJECT</h2><p className="form-intro">Required details help us understand your request. This form does not show a false success—the server confirms whether delivery is configured.</p><ContactForm/></div></div></section></>}
+import type { Metadata } from "next";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
+import { Eyebrow, PageHero } from "@/components/Shared";
+import { companyInfo } from "@/data/company";
+
+export const metadata: Metadata = { title: "Contact", description: "Contact Gentle Elevators for elevator installation, repair, maintenance, safety inspection, or a quotation anywhere in Lebanon." };
+
+export default function Contact() {
+  const items = [
+    { icon: Phone, label: "Phone", value: companyInfo.phone, href: `tel:${companyInfo.phoneDigits}` },
+    { icon: MessageCircle, label: "WhatsApp", value: companyInfo.whatsapp, href: `https://wa.me/${companyInfo.whatsappDigits}` },
+    { icon: Mail, label: "Email", value: companyInfo.email, href: `mailto:${companyInfo.email}` },
+    { icon: MapPin, label: "Office", value: companyInfo.location, href: companyInfo.mapUrl },
+    { icon: Clock, label: "Working hours", value: companyInfo.workingHours },
+  ];
+  return <>
+    <PageHero title="CONTACT GENTLE ELEVATORS" description="Contact our team for elevator installation, repair, maintenance, safety inspection, or a quotation anywhere in Lebanon." />
+    <section className="section"><div className="container contact-layout">
+      <aside><Eyebrow>Talk to our team</Eyebrow><h2>WE&apos;RE HERE TO HELP</h2><p>Tell us about your building, the service you need, and your location. We&apos;ll review your inquiry and follow up using the details you provide.</p><div className="contact-list">{items.map(({ icon: Icon, label, value, href }) => { const inner = <><Icon /><span><small>{label}</small><b>{value}</b></span></>; return href ? <a href={href} key={label} target={label === "Office" ? "_blank" : undefined} rel={label === "Office" ? "noreferrer" : undefined}>{inner}</a> : <div key={label}>{inner}</div>; })}</div><div className="contact-map"><iframe src={companyInfo.mapEmbedUrl} title="Gentle Elevators location" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div></aside>
+      <div><Eyebrow>Request a quote</Eyebrow><h2>TELL US ABOUT YOUR PROJECT</h2><p className="form-intro">Required details help us understand your request. You can also send the same details directly through WhatsApp.</p><ContactForm /></div>
+    </div></section>
+  </>;
+}
