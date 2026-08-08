@@ -294,3 +294,7 @@ h1,h2,h3{font-weight:800;text-wrap:balance}
 .hero .hero-background img{transform:none;object-position:50% 50%!important}
 @media(max-width:900px){.hero .hero-background img{transform:none;object-position:67% 50%!important}}
 @media(max-width:600px){.hero .hero-background img{transform:none;object-position:69% 50%!important}}
+
+/* Natural crops for the shared elevator photograph */
+.project-card .reference-image img,.project-detail>.reference-image img{transform:none}
+.project-card:hover .reference-image img{transform:scale(1.045)}
