@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: { default: "Gentle Elevators | Elevator Services Across Lebanon", template: "%s | Gentle Elevators" },
   description: "Gentle Elevators provides professional elevator installation, repair, maintenance, modernization, and safety inspection services across Lebanon.",
   alternates: { canonical: "/" },
-  openGraph: { title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010.", type: "website", url: "/" },
-  twitter: { card: "summary", title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010." },
+  openGraph: { title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010.", type: "website", url: "/", images: [{ url: "/og-luxury.png", width: 1733, height: 908, alt: "Gentle Elevators — Safe. Reliable. Smooth." }] },
+  twitter: { card: "summary_large_image", title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010.", images: ["/og-luxury.png"] },
   icons: { icon: "/favicon.svg" },
 };
 
