@@ -1,6 +1,7 @@
 const clean = (value: unknown, max = 500) => String(value ?? "").replace(/[<>]/g, "").trim().slice(0, max);
 const hits = new Map<string, { count: number; reset: number }>();
 const defaultRecipient = "gentle.elevators@gmail.com";
+const defaultSiteUrl = "https://gentel-elevators.zero-serr.chatgpt.site";
 
 export async function POST(request: Request) {
   try {
@@ -29,10 +30,16 @@ export async function POST(request: Request) {
     if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
 
     const recipient = process.env.FORM_DELIVERY_EMAIL || defaultRecipient;
+    const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl).replace(/\/$/, "");
     const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`;
     const delivery = await fetch(endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: siteUrl,
+        Referer: `${siteUrl}/contact`,
+      },
       body: JSON.stringify({
         _subject: `New Gentle Elevators inquiry: ${data.service}`,
         _template: "table",
@@ -48,7 +55,14 @@ export async function POST(request: Request) {
       signal: AbortSignal.timeout(12_000),
     });
     const result = await delivery.json().catch(() => null) as { success?: boolean | string; message?: string } | null;
-    if (!delivery.ok || result?.success === false || result?.success === "false") throw new Error("Delivery failed");
+    const rejected = !delivery.ok || result?.success === false || result?.success === "false";
+    if (rejected && result?.message?.toLowerCase().includes("activation")) {
+      return Response.json(
+        { error: "Email delivery needs one-time activation. Please open gentle.elevators@gmail.com and click the FormSubmit activation link." },
+        { status: 503 },
+      );
+    }
+    if (rejected) throw new Error("Delivery failed");
 
     return Response.json({ message: "Thank you. Your inquiry has been sent to Gentle Elevators." });
   } catch {
