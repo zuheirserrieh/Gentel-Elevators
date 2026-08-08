@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   openGraph: { title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010.", type: "website", url: "/", images: [{ url: "/og-luxury.png", width: 1733, height: 908, alt: "Gentle Elevators — Safe. Reliable. Smooth." }] },
   twitter: { card: "summary_large_image", title: "Gentle Elevators", description: "Professional elevator services across Lebanon since 2010.", images: ["/og-luxury.png"] },
   icons: { icon: "/favicon.svg" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#04101a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
