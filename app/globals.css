@@ -284,3 +284,8 @@ h1,h2,h3{font-weight:800;text-wrap:balance}
   .company-facts>div:last-child{grid-column:auto}
   .mobile-menu-actions{grid-template-columns:1fr}
 }
+
+/* Single mobile contact action */
+.mobile-contact{grid-template-columns:minmax(0,1fr)}
+.mobile-contact .main{width:100%;height:64px;flex-direction:row;gap:10px;font-size:12px;letter-spacing:.55px}
+.mobile-contact .main svg{width:22px;height:22px}
