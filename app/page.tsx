@@ -17,7 +17,7 @@ const why = ["Professional installation", "Fast response", "Reliable maintenance
 export default function Home() {
   return <>
     <section className="hero">
-      <ReferenceImage alt="Premium modern elevator cabin" position="50% 10%" />
+      <ReferenceImage className="hero-background" src="/images/hero/gentle-elevator-hero.png" alt="Premium modern elevator entrance with warm gold lighting" position="50% 50%" priority />
       <div className="hero-shade" />
       <div className="container hero-content">
         <Eyebrow>Safe. Reliable. Smooth.</Eyebrow>
