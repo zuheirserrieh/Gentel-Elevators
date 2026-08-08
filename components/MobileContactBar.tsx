@@ -1,0 +1,2 @@
+import Link from "next/link"; import { MessageCircle, Phone, FileText } from "lucide-react"; import { companyInfo } from "@/data/company";
+export function MobileContactBar(){const msg=encodeURIComponent("Hello Gentel Elevators, I would like to ask about your elevator services.");return <div className="mobile-contact"><a href={`tel:${companyInfo.phone}`}><Phone/>Call</a><a className="main" target="_blank" rel="noreferrer" href={`https://wa.me/${companyInfo.whatsappDigits}?text=${msg}`}><MessageCircle/>WhatsApp</a><Link href="/contact#quote"><FileText/>Quote</Link></div>}
