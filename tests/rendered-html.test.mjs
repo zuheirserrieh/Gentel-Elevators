@@ -29,6 +29,7 @@ test("keeps business content configurable", async () => {
   ]);
   assert.match(company, /whatsappDigits/);
   assert.match(projects, /export const projects/);
-  assert.match(api, /CONTACT_WEBHOOK_URL/);
+  assert.match(api, /FORM_DELIVERY_EMAIL/);
+  assert.match(api, /formsubmit\.co/);
   assert.match(api, /website/);
 });
