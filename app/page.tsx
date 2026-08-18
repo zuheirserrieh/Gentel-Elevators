@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Check, Headphones, MapPin, Phone, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { CTA, Eyebrow, ReferenceImage } from "@/components/Shared";
-import { ProjectCard } from "@/components/ProjectCard";
 import { companyInfo } from "@/data/company";
-import { projects } from "@/data/projects";
 import { services } from "@/data/services";
 
 const trust = [
@@ -91,9 +89,13 @@ export default function Home() {
       <div className="container">
         <div className="heading-row">
           <div><Eyebrow>Our projects</Eyebrow><h2>BUILT FOR EVERY SPACE</h2></div>
-          <Link className="button button-dark" href="/projects">View all projects<ArrowRight /></Link>
         </div>
-        <div className="project-grid">{projects.slice(0, 4).map(project => <ProjectCard key={project.slug} project={project} />)}</div>
+        <div className="projects-coming-soon">
+          <span>Coming soon</span>
+          <h3>OUR PROJECT SHOWCASE IS ON THE WAY</h3>
+          <p>We&apos;re preparing a selection of Gentle Elevators projects to share with you soon.</p>
+          <Link className="button button-dark" href="/projects">Learn more<ArrowRight /></Link>
+        </div>
       </div>
     </section>
 
