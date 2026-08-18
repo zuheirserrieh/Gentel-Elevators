@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileContactBar } from "@/components/MobileContactBar";
+import { LanguageProvider } from "@/components/Language";
 import { companyInfo } from "@/data/company";
 
 export const metadata: Metadata = {
@@ -34,5 +35,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     url: companyInfo.website,
     sameAs: [companyInfo.instagram, companyInfo.tiktok],
   };
-  return <html lang="en"><body><Header /><main>{children}</main><Footer /><MobileContactBar /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></body></html>;
+  return <html lang="en"><body><LanguageProvider><Header /><main>{children}</main><Footer /><MobileContactBar /></LanguageProvider><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></body></html>;
 }

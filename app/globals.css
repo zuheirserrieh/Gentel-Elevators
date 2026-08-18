@@ -154,6 +154,19 @@ main, section, .container, .container > * { min-width: 0; }
 .desktop-nav a:hover::after, .desktop-nav a.active::after { right: 0; }
 .header-cta { min-height: 48px; }
 .menu-toggle, .mobile-menu { display: none; }
+.language-switcher { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid rgba(223, 189, 123, 0.23); border-radius: 999px; background: rgba(255, 255, 255, 0.035); }
+.language-switcher span { width: 1px; height: 15px; background: rgba(255, 255, 255, 0.16); }
+.language-switcher button { padding: 4px 3px; border: 0; background: transparent; color: #8e9ba4; cursor: pointer; font-size: 10px; font-weight: 800; letter-spacing: 0.35px; line-height: 1; }
+.language-switcher button:last-child { font-size: 12px; }
+.language-switcher button.active, .language-switcher button:hover { color: var(--gold-light); }
+.language-switcher button:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; border-radius: 2px; }
+
+[dir="rtl"] body { font-family: Tahoma, "Segoe UI", Arial, sans-serif; }
+[dir="rtl"] .logo { direction: ltr; }
+[dir="rtl"] .eyebrow, [dir="rtl"] .button, [dir="rtl"] .desktop-nav a, [dir="rtl"] .project-meta span, [dir="rtl"] .contact-form label { letter-spacing: 0; }
+[dir="rtl"] .contact-list b, [dir="rtl"] .footer a { unicode-bidi: plaintext; }
+[dir="rtl"] .text-link svg, [dir="rtl"] .service-card a svg, [dir="rtl"] .project-card b svg, [dir="rtl"] .back svg { transform: scaleX(-1); }
+[dir="rtl"] .contact-form input[type="email"] { direction: ltr; text-align: right; }
 
 /* Shared imagery */
 .reference-image { position: relative; min-height: 280px; overflow: hidden; border-radius: var(--radius); background: var(--navy-soft); }
@@ -477,6 +490,8 @@ main, section, .container, .container > * { min-width: 0; }
 
 @media (max-width: 430px) {
   .container { width: calc(100% - 24px); }
+  .header-inner { gap: 8px; }
+  .language-switcher { gap: 5px; padding: 4px 6px; }
   .hero-actions { grid-template-columns: 1fr; }
   .hero-actions .button:first-child { grid-column: auto; }
   .trust-grid, .why-grid, .company-facts { grid-template-columns: 1fr; }
