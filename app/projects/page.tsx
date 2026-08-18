@@ -1,3 +1,3 @@
-import type { Metadata } from "next"; import { CTA, PageHero } from "@/components/Shared";
-export const metadata:Metadata={title:"Projects — Coming Soon",description:"Gentle Elevators project showcase is coming soon."};
-export default function Projects(){return <><PageHero title="OUR PROJECTS" description="Elevator solutions planned for residential, commercial, hospitality, and office spaces."/><section className="section app-projects"><div className="container"><div className="projects-coming-soon projects-coming-soon-page"><span>Coming soon</span><h2>OUR PROJECT SHOWCASE IS ON THE WAY</h2><p>We&apos;re preparing a selection of residential, commercial, hospitality, and office elevator projects to share with you soon.</p></div></div></section><CTA/></>}
+import type { Metadata } from "next"; import { CTA, PageHero } from "@/components/Shared"; import { ProjectGallery } from "@/components/ProjectGallery";
+export const metadata:Metadata={title:"Projects",description:"See completed Gentle Elevators work through original project photography and video."};
+export default function Projects(){return <><PageHero title="OUR PROJECTS" description="A closer look at completed Gentle Elevators work through original project photography and video."/><section className="section app-projects"><div className="container"><ProjectGallery/></div></section><CTA/></>}
