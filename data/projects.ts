@@ -43,7 +43,7 @@ export const projects: Project[] = [
     locationAr: "منزل خاص",
     description: "A completed home elevator installation with dark landing doors, illuminated floor indicators, and a bright mirrored cabin.",
     descriptionAr: "تركيب مكتمل لمصعد منزلي بأبواب طوابق داكنة ومؤشرات طوابق مضاءة ومقصورة مشرقة بلمسات عاكسة.",
-    coverImage: `${imageBase}/lobby-entrance-wide.jpg`,
+    coverImage: `/images/hero/image.jpg`,
     imagePosition: "50% 52%",
     overview: "This residential installation integrates a compact passenger elevator into two distinct interior settings. Dark landing doors with slim vision panels complement both the marble-finished lobby and the home’s lighter neutral walls.",
     overviewAr: "يندمج هذا المصعد السكني المدمج بانسجام مع تصميمين داخليين مختلفين. وتتكامل أبواب الطوابق الداكنة المزودة بنوافذ طولية رفيعة مع ردهة الرخام والجدران المنزلية ذات الألوان الهادئة.",

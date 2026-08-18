@@ -39,7 +39,7 @@ export default function Home() {
       <div className="hero-shade" />
       <div className="container hero-content">
         <Eyebrow><T en="Safe. Reliable. Smooth." ar="آمن. موثوق. سلس." /></Eyebrow>
-        <h1><T en={<>ELEVATORS THAT<br /> <span>MOVE YOU FORWARD</span></>} ar={<>مصاعد <span>ترتقي بك إلى الأمام</span></>} /></h1>
+        <h1><T en={<>ELEVATORS THAT<br /> <span>MOVE YOU FORWARD</span></>} ar={<><span style={{color: '#D4AF37'}}>جنتل ... وخليك جنتل</span></>} /></h1>
         <p><T en={<>Serving all Lebanon since {companyInfo.established} with professional elevator installation, repair, maintenance, modernization, and safety inspection services.</>} ar={<>نخدم جميع أنحاء لبنان منذ عام {companyInfo.established} بخدمات احترافية لتركيب المصاعد وإصلاحها وصيانتها وتحديثها وفحص سلامتها.</>} /></p>
         <div className="hero-actions">
           <Link className="button button-gold" href="/contact"><Phone /><T en="Contact us" ar="اتصل بنا" /></Link>
