@@ -1,9 +1,9 @@
 export const companyInfo = {
   name: "Gentle Elevators",
-  phone: "+961 3 662 916",
-  phoneDigits: "+9613662916",
-  whatsapp: "+961 3 662 916",
-  whatsappDigits: "9613662916",
+  phone: "+961 70 873 572",
+  phoneDigits: "+96170873572",
+  whatsapp: "+961 70 873 572",
+  whatsappDigits: "96170873572",
   email: "gentle.elevators@gmail.com",
   location: "Saida – Hay El-Zhour, Lebanon",
   workingHours: "8:00 AM to 6:00 PM",
