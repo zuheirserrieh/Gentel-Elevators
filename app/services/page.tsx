@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { CTA, Eyebrow, PageHero, ReferenceImage } from "@/components/Shared";
 import { T } from "@/components/Language";
@@ -19,7 +18,7 @@ export default function Services() {
           <h2><T en={service.title.toUpperCase()} ar={service.titleAr} /></h2>
           <p><T en={service.description} ar={service.descriptionAr} /></p>
           <div className="check-grid">{service.items.map((item, itemIndex) => <span key={item}><Check /><T en={item} ar={service.itemsAr[itemIndex]} /></span>)}</div>
-          <Link className="button button-gold" href={`/contact?service=${service.slug}#quote`}><T en="Request a quotation" ar="اطلب عرض سعر" /><ArrowRight /></Link>
+          <a className="button button-gold" href={`/contact?service=${service.slug}#quote`}><T en="Request a quotation" ar="اطلب عرض سعر" /><ArrowRight /></a>
         </div>
       </div>
     </article>)}</section>

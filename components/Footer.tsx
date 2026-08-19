@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { companyInfo, navItems } from "@/data/company";
@@ -9,8 +8,8 @@ export function Footer() {
   return <footer className="footer">
     <div className="container footer-grid">
       <div><Logo /><p><T en={<>Serving all Lebanon with professional elevator installation, repair, maintenance, modernization, and safety inspection services since {companyInfo.established}.</>} ar={<>نخدم جميع أنحاء لبنان بخدمات احترافية لتركيب المصاعد وإصلاحها وصيانتها وتحديثها وفحص سلامتها منذ عام {companyInfo.established}.</>} /></p></div>
-      <div><h3><T en="Explore" ar="استكشف" /></h3>{navItems.map(item => <Link key={item.href} href={item.href}><T en={item.label} ar={item.labelAr} /></Link>)}</div>
-      <div><h3><T en="Services" ar="الخدمات" /></h3>{services.map(service => <Link key={service.slug} href={`/services#${service.slug}`}><T en={service.title} ar={service.titleAr} /></Link>)}</div>
+      <div><h3><T en="Explore" ar="استكشف" /></h3>{navItems.map(item => <a key={item.href} href={item.href}><T en={item.label} ar={item.labelAr} /></a>)}</div>
+      <div><h3><T en="Services" ar="الخدمات" /></h3>{services.map(service => <a key={service.slug} href={`/services#${service.slug}`}><T en={service.title} ar={service.titleAr} /></a>)}</div>
       <div>
         <h3><T en="Contact" ar="اتصل بنا" /></h3>
         <a href={`tel:${companyInfo.phoneDigits}`}><Phone size={15} />{companyInfo.phone}</a>

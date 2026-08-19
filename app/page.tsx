@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowRight, Check, Headphones, MapPin, Phone, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { CTA, Eyebrow, ReferenceImage } from "@/components/Shared";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -42,8 +41,8 @@ export default function Home() {
         <h1><T en={<>ELEVATORS THAT<br /> <span>MOVE YOU FORWARD</span></>} ar={<><span style={{color: '#D4AF37'}}>جنتل ... وخليك جنتل</span></>} /></h1>
         <p><T en={<>Serving all Lebanon since {companyInfo.established} with professional elevator installation, repair, maintenance, modernization, and safety inspection services.</>} ar={<>نخدم جميع أنحاء لبنان منذ عام {companyInfo.established} بخدمات احترافية لتركيب المصاعد وإصلاحها وصيانتها وتحديثها وفحص سلامتها.</>} /></p>
         <div className="hero-actions">
-          <Link className="button button-gold" href="/contact"><Phone /><T en="Contact us" ar="اتصل بنا" /></Link>
-          <Link className="button button-outline" href="/services"><T en="Our services" ar="خدماتنا" /><ArrowRight /></Link>
+          <a className="button button-gold" href="/contact"><Phone /><T en="Contact us" ar="اتصل بنا" /></a>
+          <a className="button button-outline" href="/services"><T en="Our services" ar="خدماتنا" /><ArrowRight /></a>
           <a className="button button-location" href={companyInfo.mapUrl} target="_blank" rel="noreferrer"><MapPin /><T en="Our location" ar="موقعنا" /></a>
         </div>
       </div>
@@ -59,7 +58,7 @@ export default function Home() {
           <div className="trust-grid">
             {trust.map(({ icon: Icon, title, titleAr, text, textAr }) => <div className="trust" key={title}><Icon /><h3><T en={title} ar={titleAr} /></h3><p><T en={text} ar={textAr} /></p></div>)}
           </div>
-          <Link className="text-link" href="/about"><T en="Discover our company" ar="تعرّف على شركتنا" /> <ArrowRight /></Link>
+          <a className="text-link" href="/about"><T en="Discover our company" ar="تعرّف على شركتنا" /> <ArrowRight /></a>
         </div>
       </div>
     </section>
@@ -74,7 +73,7 @@ export default function Home() {
         <div className="service-grid">
           {services.slice(0, 4).map(({ icon: Icon, ...service }) => <article className="service-card" key={service.slug}>
             <ReferenceImage src={service.image} alt={`${service.title} service`} position={service.imagePosition} />
-            <div><Icon /><h3><T en={service.title} ar={service.titleAr} /></h3><p><T en={service.description} ar={service.descriptionAr} /></p><Link href={`/services#${service.slug}`}><T en="Learn more" ar="اعرف المزيد" /> <ArrowRight /></Link></div>
+            <div><Icon /><h3><T en={service.title} ar={service.titleAr} /></h3><p><T en={service.description} ar={service.descriptionAr} /></p><a href={`/services#${service.slug}`}><T en="Learn more" ar="اعرف المزيد" /> <ArrowRight /></a></div>
           </article>)}
         </div>
       </div>
@@ -92,7 +91,7 @@ export default function Home() {
       <div className="container">
         <div className="heading-row">
           <div><Eyebrow><T en="Our projects" ar="مشاريعنا" /></Eyebrow><h2><T en="BUILT FOR EVERY SPACE" ar="مصممة لكل مساحة" /></h2></div>
-          <Link className="button button-dark" href="/projects"><T en="View all projects" ar="عرض جميع المشاريع" /><ArrowRight /></Link>
+          <a className="button button-dark" href="/projects"><T en="View all projects" ar="عرض جميع المشاريع" /><ArrowRight /></a>
         </div>
         <div className="project-grid featured-project-grid">{projects.slice(0, 1).map(project => <ProjectCard key={project.slug} project={project} />)}</div>
       </div>

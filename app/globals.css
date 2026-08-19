@@ -148,10 +148,10 @@ main, section, .container, .container > * { min-width: 0; }
 .logo small { display: block; margin-top: 8px; color: var(--gold); font-size: 9px; letter-spacing: 4px; }
 .logo-mark { display: grid; width: 44px; height: 49px; place-items: center; border: 4px solid var(--gold); color: var(--gold); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); font-size: 23px; }
 .desktop-nav { display: flex; align-items: center; gap: 34px; }
-.desktop-nav a { position: relative; padding: 33px 0; color: #d9dfe3; font-size: 12px; font-weight: 650; letter-spacing: 0.55px; text-transform: uppercase; }
-.desktop-nav a::after { content: ""; position: absolute; right: 100%; bottom: 24px; left: 0; height: 1px; background: var(--gold); transition: right 0.25s ease; }
-.desktop-nav a:hover, .desktop-nav a.active { color: var(--white); }
-.desktop-nav a:hover::after, .desktop-nav a.active::after { right: 0; }
+.desktop-nav button { position: relative; padding: 33px 0; border: 0; background: transparent; color: #d9dfe3; cursor: pointer; font: inherit; font-size: 12px; font-weight: 650; letter-spacing: 0.55px; text-transform: uppercase; }
+.desktop-nav button::after { content: ""; position: absolute; right: 100%; bottom: 24px; left: 0; height: 1px; background: var(--gold); transition: right 0.25s ease; }
+.desktop-nav button:hover, .desktop-nav button.active { color: var(--white); }
+.desktop-nav button:hover::after, .desktop-nav button.active::after { right: 0; }
 .header-cta { min-height: 48px; }
 .menu-toggle, .mobile-menu { display: none; }
 .language-switcher { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 5px 8px; border: 1px solid rgba(223, 189, 123, 0.23); border-radius: 999px; background: rgba(255, 255, 255, 0.035); }
@@ -401,9 +401,9 @@ main, section, .container, .container > * { min-width: 0; }
   .menu-toggle { display: grid; width: 44px; height: 44px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px; background: transparent; color: var(--white); cursor: pointer; }
   .mobile-menu { display: grid; position: absolute; top: 100%; right: 0; left: 0; max-height: calc(100svh - 78px); overflow-y: auto; padding: 23px max(22px, calc((100% - 1220px) / 2)) 28px; border-top: 1px solid #263844; border-bottom: 1px solid rgba(201, 154, 69, 0.33); background: rgba(4, 16, 26, 0.99); box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32); }
   .mobile-menu-kicker { display: block; margin-bottom: 9px; color: var(--gold); font-size: 9px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; }
-  .mobile-menu > a:not(.button) { display: flex; align-items: center; justify-content: space-between; padding: 14px 2px; border-bottom: 1px solid #1e303c; color: #dbe1e5; font-size: 13px; font-weight: 700; text-transform: uppercase; }
-  .mobile-menu > a.active { color: var(--gold-light); }
-  .mobile-menu > a svg { width: 15px; color: #74828b; }
+  .mobile-menu > button:not(.button) { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 14px 2px; border: 0; border-bottom: 1px solid #1e303c; background: transparent; color: #dbe1e5; cursor: pointer; font: inherit; font-size: 13px; font-weight: 700; text-align: start; text-transform: uppercase; }
+  .mobile-menu > button.active { color: var(--gold-light); }
+  .mobile-menu > button svg { width: 15px; color: #74828b; }
   .mobile-menu-actions { display: grid; grid-template-columns: 1fr 1.2fr; gap: 10px; margin-top: 18px; }
   .mobile-menu-actions .button { width: 100%; padding-inline: 12px; }
   .hero { min-height: 680px; }

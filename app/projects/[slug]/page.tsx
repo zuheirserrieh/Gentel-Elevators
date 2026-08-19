@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Building2, CheckCircle2, MapPin, Wrench } from "lucide-react";
 import { CTA, Eyebrow, ReferenceImage } from "@/components/Shared";
@@ -33,7 +32,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   return <>
     <section className="project-hero">
       <div className="container">
-        <Link href="/projects" className="back"><ArrowLeft /><T en="Back to projects" ar="العودة إلى المشاريع" /></Link>
+        <a href="/projects" className="back"><ArrowLeft /><T en="Back to projects" ar="العودة إلى المشاريع" /></a>
         <Eyebrow><T en={project.category} ar={project.categoryAr} /></Eyebrow>
         <h1><T en={project.title} ar={project.titleAr} /></h1>
         <p><T en={project.description} ar={project.descriptionAr} /></p>

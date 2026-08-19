@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, MessageCircle, X, ArrowUpRight, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -27,7 +26,7 @@ export function Header() {
     <div className="container header-inner">
       <Logo />
       <nav className="desktop-nav" aria-label={arabic ? "التنقل الرئيسي" : "Main navigation"}>
-        {navItems.map(item => <Link className={isActive(item.href) ? "active" : ""} key={item.href} href={item.href}>{arabic ? item.labelAr : item.label}</Link>)}
+        {navItems.map(item => <button className={isActive(item.href) ? "active" : ""} key={item.href} type="button" onClick={() => window.location.assign(item.href)}>{arabic ? item.labelAr : item.label}</button>)}
       </nav>
       <LanguageSwitcher />
       <a className="button button-gold header-cta" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} />{arabic ? "تواصل معنا" : "Get in touch"}<ArrowUpRight size={16} /></a>
@@ -35,7 +34,7 @@ export function Header() {
     </div>
     {open && <nav className="mobile-menu" id="mobile-navigation" aria-label={arabic ? "التنقل عبر الهاتف" : "Mobile navigation"}>
       <span className="mobile-menu-kicker">{arabic ? "نخدم جميع أنحاء لبنان" : "Serving all Lebanon"}</span>
-      {navItems.map(item => <Link className={isActive(item.href) ? "active" : ""} key={item.href} href={item.href} onClick={() => setOpen(false)}>{arabic ? item.labelAr : item.label}<ArrowUpRight size={15} /></Link>)}
+      {navItems.map(item => <button className={isActive(item.href) ? "active" : ""} key={item.href} type="button" onClick={() => { setOpen(false); window.location.assign(item.href); }}>{arabic ? item.labelAr : item.label}<ArrowUpRight size={15} /></button>)}
       <div className="mobile-menu-actions">
         <a className="button button-outline" href={`tel:${companyInfo.phoneDigits}`}><Phone size={16} />{arabic ? "اتصل بنا" : "Call us"}</a>
         <a className="button button-gold" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} />واتساب</a>
