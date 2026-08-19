@@ -115,6 +115,10 @@ static site) with:
 - Deploy command: `wrangler deploy --config dist/server/wrangler.json`
 - Node.js version: `22.13.0` or newer
 
+The deployment also enables a `workers.dev` hostname. Test that Worker URL
+after deployment; the existing `chatgpt.site` URL is a separate private Sites
+host and will not receive this Worker deployment automatically.
+
 Do not set `dist/client` as the Pages output directory. It contains only static
 assets and does not contain the application routes.
 
