@@ -91,8 +91,32 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - `npm run dev`: start local development
 - `npm run build`: verify the vinext build output
+- `npm run deploy`: build and deploy the Worker to Cloudflare
 - `npm test`: build the starter and verify its rendered loading skeleton
 - `npm run db:generate`: generate Drizzle migrations after schema changes
+
+## Cloudflare Deployment
+
+This project is a Cloudflare Worker application, not a static Cloudflare Pages
+export. The build creates the route handler in `dist/server` and the browser
+assets in `dist/client`; both are required for navigation and client-side
+controls such as the mobile menu and language switcher.
+
+To deploy from a local checkout, authenticate Wrangler once and run:
+
+```bash
+npm run deploy
+```
+
+For GitHub-connected deployment, use Cloudflare Workers Builds (not a Pages
+static site) with:
+
+- Build command: `npm run build`
+- Deploy command: `wrangler deploy --config dist/server/wrangler.json`
+- Node.js version: `22.13.0` or newer
+
+Do not set `dist/client` as the Pages output directory. It contains only static
+assets and does not contain the application routes.
 
 ## Learn More
 
