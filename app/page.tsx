@@ -73,7 +73,7 @@ export default function Home() {
         </div>
         <div className="service-grid">
           {services.slice(0, 4).map(({ icon: Icon, ...service }) => <article className="service-card" key={service.slug}>
-            <ReferenceImage alt={`${service.title} service`} position={service.imagePosition} />
+            <ReferenceImage src={service.image} alt={`${service.title} service`} position={service.imagePosition} />
             <div><Icon /><h3><T en={service.title} ar={service.titleAr} /></h3><p><T en={service.description} ar={service.descriptionAr} /></p><Link href={`/services#${service.slug}`}><T en="Learn more" ar="اعرف المزيد" /> <ArrowRight /></Link></div>
           </article>)}
         </div>

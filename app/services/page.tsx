@@ -12,7 +12,7 @@ export default function Services() {
     <PageHero title="ELEVATOR SERVICES" titleAr="خدمات المصاعد" description="Professional installation, repair, maintenance, and modernization services." descriptionAr="خدمات احترافية لتركيب المصاعد وإصلاحها وصيانتها وتحديثها." />
     <section>{services.map(({ icon: Icon, ...service }, index) => <article className={`service-detail ${index % 2 ? "reverse" : ""}`} id={service.slug} key={service.slug}>
       <div className="container split">
-        <ReferenceImage alt={`${service.title} by Gentle Elevators`} position={service.imagePosition} />
+        <ReferenceImage src={service.image} alt={`${service.title} by Gentle Elevators`} position={service.imagePosition} />
         <div>
           <Icon className="large-icon" />
           <Eyebrow><T en={`Service ${String(index + 1).padStart(2, "0")}`} ar={`الخدمة ${String(index + 1).padStart(2, "0")}`} /></Eyebrow>
