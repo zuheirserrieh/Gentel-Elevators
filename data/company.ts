@@ -13,7 +13,7 @@ export const companyInfo = {
   serviceAreaAr: "جميع أنحاء لبنان",
   established: 2010,
   languages: ["English", "Arabic"],
-  website: "https://gentel-elevators.zero-serr.chatgpt.site",
+  website: "https://gentleelevators.com",
   instagram: "https://www.instagram.com/gentle.elevators/",
   tiktok: "https://www.tiktok.com/@gentle_elevators?lang=en",
   mapUrl: "https://maps.app.goo.gl/AgJNArAbsKgkBbV8A",

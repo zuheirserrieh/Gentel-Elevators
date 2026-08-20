@@ -4,8 +4,9 @@ import { ContactForm } from "@/components/ContactForm";
 import { Eyebrow, PageHero } from "@/components/Shared";
 import { companyInfo } from "@/data/company";
 import { T } from "@/components/Language";
+import { pageAlternates } from "@/data/seo";
 
-export const metadata: Metadata = { title: "Contact", description: "Contact Gentle Elevators for elevator installation, repair, maintenance, safety inspection, or a quotation anywhere in Lebanon." };
+export const metadata: Metadata = { title: "Contact & Request an Elevator Quote", description: "Contact Gentle Elevators in Saida for elevator installation, repair, maintenance, safety inspection, or a quotation anywhere in Lebanon.", alternates: pageAlternates("/contact") };
 
 export default function Contact() {
   const items = [

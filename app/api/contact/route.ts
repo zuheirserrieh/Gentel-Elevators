@@ -1,7 +1,7 @@
 const clean = (value: unknown, max = 500) => String(value ?? "").replace(/[<>]/g, "").trim().slice(0, max);
 const hits = new Map<string, { count: number; reset: number }>();
 const defaultRecipient = "gentle.elevators@gmail.com";
-const defaultSiteUrl = "https://gentel-elevators.zero-serr.chatgpt.site";
+const defaultSiteUrl = "https://gentleelevators.com";
 
 export async function POST(request: Request) {
   try {

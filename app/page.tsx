@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { companyInfo } from "@/data/company";
 import { projects } from "@/data/projects";
 import { services } from "@/data/services";
-import { T } from "@/components/Language";
+import { LocalizedLink, T } from "@/components/Language";
 
 const trust = [
   { icon: ShieldCheck, title: "Safety First", titleAr: "السلامة أولاً", text: "International safety standards.", textAr: "معايير سلامة عالمية." },
@@ -41,8 +41,8 @@ export default function Home() {
         <h1><T en={<>ELEVATORS THAT<br /> <span>MOVE YOU FORWARD</span></>} ar={<><span style={{color: '#D4AF37'}}>جنتل ... وخليك جنتل</span></>} /></h1>
         <p><T en={<>Serving all Lebanon since {companyInfo.established} with professional elevator installation, repair, maintenance, modernization, and safety inspection services.</>} ar={<>نخدم جميع أنحاء لبنان منذ عام {companyInfo.established} بخدمات احترافية لتركيب المصاعد وإصلاحها وصيانتها وتحديثها وفحص سلامتها.</>} /></p>
         <div className="hero-actions">
-          <a className="button button-gold" href="/contact"><Phone /><T en="Contact us" ar="اتصل بنا" /></a>
-          <a className="button button-outline" href="/services"><T en="Our services" ar="خدماتنا" /><ArrowRight /></a>
+          <LocalizedLink className="button button-gold" href="/contact"><Phone /><T en="Contact us" ar="اتصل بنا" /></LocalizedLink>
+          <LocalizedLink className="button button-outline" href="/services"><T en="Our services" ar="خدماتنا" /><ArrowRight /></LocalizedLink>
           <a className="button button-location" href={companyInfo.mapUrl} target="_blank" rel="noreferrer"><MapPin /><T en="Our location" ar="موقعنا" /></a>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function Home() {
           <div className="trust-grid">
             {trust.map(({ icon: Icon, title, titleAr, text, textAr }) => <div className="trust" key={title}><Icon /><h3><T en={title} ar={titleAr} /></h3><p><T en={text} ar={textAr} /></p></div>)}
           </div>
-          <a className="text-link" href="/about"><T en="Discover our company" ar="تعرّف على شركتنا" /> <ArrowRight /></a>
+          <LocalizedLink className="text-link" href="/about"><T en="Discover our company" ar="تعرّف على شركتنا" /> <ArrowRight /></LocalizedLink>
         </div>
       </div>
     </section>
@@ -91,7 +91,7 @@ export default function Home() {
       <div className="container">
         <div className="heading-row">
           <div><Eyebrow><T en="Our projects" ar="مشاريعنا" /></Eyebrow><h2><T en="BUILT FOR EVERY SPACE" ar="مصممة لكل مساحة" /></h2></div>
-          <a className="button button-dark" href="/projects"><T en="View all projects" ar="عرض جميع المشاريع" /><ArrowRight /></a>
+          <LocalizedLink className="button button-dark" href="/projects"><T en="View all projects" ar="عرض جميع المشاريع" /><ArrowRight /></LocalizedLink>
         </div>
         <div className="project-grid featured-project-grid">{projects.slice(0, 1).map(project => <ProjectCard key={project.slug} project={project} />)}</div>
       </div>

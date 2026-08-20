@@ -4,7 +4,8 @@ import { ArrowLeft, Building2, CheckCircle2, MapPin, Wrench } from "lucide-react
 import { CTA, Eyebrow, ReferenceImage } from "@/components/Shared";
 import { companyInfo } from "@/data/company";
 import { projects } from "@/data/projects";
-import { T } from "@/components/Language";
+import { LocalizedLink, T } from "@/components/Language";
+import { pageAlternates } from "@/data/seo";
 
 export function generateStaticParams() {
   return projects.map(project => ({ slug: project.slug }));
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: project.title,
     description: project.description,
+    alternates: pageAlternates(`/projects/${project.slug}`),
     openGraph: { title: project.title, description: project.description, url, type: "article", images: [{ url: image, alt: `${project.title} by Gentle Elevators` }] },
     twitter: { card: "summary_large_image", title: project.title, description: project.description, images: [image] },
   };
@@ -32,7 +34,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   return <>
     <section className="project-hero">
       <div className="container">
-        <a href="/projects" className="back"><ArrowLeft /><T en="Back to projects" ar="العودة إلى المشاريع" /></a>
+        <LocalizedLink href="/projects" className="back"><ArrowLeft /><T en="Back to projects" ar="العودة إلى المشاريع" /></LocalizedLink>
         <Eyebrow><T en={project.category} ar={project.categoryAr} /></Eyebrow>
         <h1><T en={project.title} ar={project.titleAr} /></h1>
         <p><T en={project.description} ar={project.descriptionAr} /></p>

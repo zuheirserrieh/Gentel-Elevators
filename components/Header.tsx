@@ -14,7 +14,11 @@ export function Header() {
   const arabic = language === "ar";
   const message = arabic ? "مرحبًا Gentle Elevators، أود الاستفسار عن خدمات المصاعد." : "Hello Gentle Elevators, I would like to ask about your elevator services.";
   const whatsappUrl = `https://wa.me/${companyInfo.whatsappDigits}?text=${encodeURIComponent(message)}`;
-  const isActive = (href: string) => href === "/" ? path === href : path.startsWith(href);
+  const routeFor = (href: string) => arabic ? (href === "/" ? "/ar" : `/ar${href}`) : href;
+  const isActive = (href: string) => {
+    const route = routeFor(href);
+    return route === "/" || route === "/ar" ? path === route : path.startsWith(route);
+  };
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
@@ -26,7 +30,7 @@ export function Header() {
     <div className="container header-inner">
       <Logo />
       <nav className="desktop-nav" aria-label={arabic ? "التنقل الرئيسي" : "Main navigation"}>
-        {navItems.map(item => <button className={isActive(item.href) ? "active" : ""} key={item.href} type="button" onClick={() => window.location.assign(item.href)}>{arabic ? item.labelAr : item.label}</button>)}
+        {navItems.map(item => <a className={isActive(item.href) ? "active" : ""} key={item.href} href={routeFor(item.href)}>{arabic ? item.labelAr : item.label}</a>)}
       </nav>
       <LanguageSwitcher />
       <a className="button button-gold header-cta" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} />{arabic ? "تواصل معنا" : "Get in touch"}<ArrowUpRight size={16} /></a>
@@ -34,7 +38,7 @@ export function Header() {
     </div>
     {open && <nav className="mobile-menu" id="mobile-navigation" aria-label={arabic ? "التنقل عبر الهاتف" : "Mobile navigation"}>
       <span className="mobile-menu-kicker">{arabic ? "نخدم جميع أنحاء لبنان" : "Serving all Lebanon"}</span>
-      {navItems.map(item => <button className={isActive(item.href) ? "active" : ""} key={item.href} type="button" onClick={() => { setOpen(false); window.location.assign(item.href); }}>{arabic ? item.labelAr : item.label}<ArrowUpRight size={15} /></button>)}
+      {navItems.map(item => <a className={isActive(item.href) ? "active" : ""} key={item.href} href={routeFor(item.href)} onClick={() => setOpen(false)}>{arabic ? item.labelAr : item.label}<ArrowUpRight size={15} /></a>)}
       <div className="mobile-menu-actions">
         <a className="button button-outline" href={`tel:${companyInfo.phoneDigits}`}><Phone size={16} />{arabic ? "اتصل بنا" : "Call us"}</a>
         <a className="button button-gold" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={16} />واتساب</a>

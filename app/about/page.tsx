@@ -3,8 +3,9 @@ import { Check, ExternalLink, Handshake, MapPin, Settings, ShieldCheck, Sparkles
 import { CTA, Eyebrow, PageHero } from "@/components/Shared";
 import { companyInfo } from "@/data/company";
 import { T } from "@/components/Language";
+import { pageAlternates } from "@/data/seo";
 
-export const metadata: Metadata = { title: "About Us", description: "Learn about Gentle Elevators, our mission, values, and safety-focused working process." };
+export const metadata: Metadata = { title: "About Our Elevator Company", description: "Learn about Gentle Elevators, a safety-focused elevator company based in Saida and serving residential and commercial buildings across Lebanon.", alternates: pageAlternates("/about") };
 const values = [{ icon: ShieldCheck, name: "Safety", ar: "السلامة" }, { icon: Sparkles, name: "Quality", ar: "الجودة" }, { icon: Check, name: "Reliability", ar: "الموثوقية" }, { icon: Users, name: "Professionalism", ar: "الاحترافية" }, { icon: Handshake, name: "Customer care", ar: "العناية بالعملاء" }, { icon: Settings, name: "Continuous improvement", ar: "التحسين المستمر" }];
 
 export default function About() {

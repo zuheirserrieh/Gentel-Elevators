@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { companyInfo } from "@/data/company";
-import { T } from "./Language";
+import { LocalizedLink, T } from "./Language";
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="eyebrow">{children}<i /></p>;
@@ -22,7 +22,7 @@ export function CTA() {
     <div className="cta-actions">
       <a className="button button-whatsapp" href={`https://wa.me/${companyInfo.whatsappDigits}?text=${message}`} target="_blank" rel="noreferrer"><MessageCircle /><T en="Chat on WhatsApp" ar="تواصل عبر واتساب" /></a>
       <a className="button button-outline" href={`tel:${companyInfo.phoneDigits}`}><Phone /><T en="Call us" ar="اتصل بنا" /></a>
-      <a className="button button-light" href="/contact#quote"><T en="Request a quote" ar="اطلب عرض سعر" /><ArrowRight /></a>
+      <LocalizedLink className="button button-light" href="/contact#quote"><T en="Request a quote" ar="اطلب عرض سعر" /><ArrowRight /></LocalizedLink>
     </div>
   </div></section>;
 }

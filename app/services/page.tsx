@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ArrowRight, Check } from "lucide-react";
 import { CTA, Eyebrow, PageHero, ReferenceImage } from "@/components/Shared";
-import { T } from "@/components/Language";
+import { LocalizedLink, T } from "@/components/Language";
 import { services } from "@/data/services";
+import { pageAlternates } from "@/data/seo";
 
-export const metadata: Metadata = { title: "Elevator Services", description: "Professional elevator installation, repair, maintenance, modernization, and safety inspection services." };
+export const metadata: Metadata = { title: "Elevator Installation, Repair & Maintenance", description: "Professional elevator installation, repair, maintenance, modernization, and safety inspection services in Saida and across Lebanon.", alternates: pageAlternates("/services") };
 
 export default function Services() {
   return <>
@@ -18,7 +19,7 @@ export default function Services() {
           <h2><T en={service.title.toUpperCase()} ar={service.titleAr} /></h2>
           <p><T en={service.description} ar={service.descriptionAr} /></p>
           <div className="check-grid">{service.items.map((item, itemIndex) => <span key={item}><Check /><T en={item} ar={service.itemsAr[itemIndex]} /></span>)}</div>
-          <a className="button button-gold" href={`/contact?service=${service.slug}#quote`}><T en="Request a quotation" ar="اطلب عرض سعر" /><ArrowRight /></a>
+          <LocalizedLink className="button button-gold" href={`/contact?service=${service.slug}#quote`}><T en="Request a quotation" ar="اطلب عرض سعر" /><ArrowRight /></LocalizedLink>
         </div>
       </div>
     </article>)}</section>
